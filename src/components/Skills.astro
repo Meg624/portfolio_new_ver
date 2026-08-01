@@ -1,0 +1,101 @@
+---
+const practical = [
+  { name: "HTML / CSS / JavaScript", note: "実務・個人開発で使用" },
+  { name: "WordPress", note: "サイト構築・カスタマイズ" },
+  { name: "Astro", note: "本サイトも構築に使用" },
+  { name: "GAS (Google Apps Script)", note: "業務自動化の中核" },
+  { name: "kintone", note: "業務アプリ構築・連携" },
+  { name: "Git", note: "基本的なブランチ運用・push可" },
+];
+
+const learning = [
+  { name: "Next.js", note: "Astroと並行して学習中" },
+  { name: "Figma", note: "基礎操作を習得中" },
+];
+---
+<section class="section" id="skills">
+  <div class="container">
+    <p class="eyebrow">Skills</p>
+    <h2 class="section-title">できること、伸ばしていること</h2>
+    <p class="section-lead">
+      実務レベルのスキルと、学習を進めている領域を分けて記載しています。
+    </p>
+
+    <div class="skill-block">
+      <h3 class="skill-heading">実務レベル</h3>
+      <ul class="skill-list">
+        {practical.map((s) => (
+          <li class="skill-item">
+            <span class="skill-name">{s.name}</span>
+            <span class="skill-note">{s.note}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3 class="skill-heading">学習中</h3>
+      <ul class="skill-list">
+        {learning.map((s) => (
+          <li class="skill-item is-learning">
+            <span class="skill-name">{s.name}</span>
+            <span class="skill-note">{s.note}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skill-block {
+    margin-top: 2.5rem;
+  }
+
+  .skill-heading {
+    font-size: var(--step-1);
+    font-family: var(--font-mono);
+    letter-spacing: 0.03em;
+    color: var(--color-ink-soft);
+    margin-bottom: 1rem;
+  }
+
+  .skill-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem 2rem;
+  }
+
+  .skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    border-bottom: 1px solid var(--color-line);
+    padding-bottom: 0.6rem;
+  }
+
+  .skill-item.is-learning {
+    border-bottom-style: dashed;
+  }
+
+  .skill-name {
+    font-weight: 500;
+  }
+
+  .skill-note {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .skill-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

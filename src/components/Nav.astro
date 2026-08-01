@@ -1,0 +1,62 @@
+---
+const links = [
+  { href: "#skills", label: "Skills" },
+  { href: "#works", label: "Works" },
+  { href: "#lp", label: "LP" },
+  { href: "#banners", label: "Banners" },
+  { href: "#dx", label: "DX" },
+  { href: "#contact", label: "Contact" },
+];
+---
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-brand">Meco</a>
+    <nav class="nav-links" aria-label="ページ内ナビゲーション">
+      {links.map((l) => (
+        <a href={l.href}>{l.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1rem;
+  }
+  .nav-brand {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--color-ink-soft);
+  }
+  .nav-links a:hover {
+    color: var(--color-accent);
+  }
+  @media (max-width: 640px) {
+    .nav-links {
+      gap: 0.9rem;
+      overflow-x: auto;
+    }
+  }
+</style>

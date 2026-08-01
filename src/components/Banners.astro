@@ -1,0 +1,51 @@
+---
+const count = 10;
+const banners = Array.from({ length: count }, (_, i) => i + 1);
+---
+<section class="section" id="banners">
+  <div class="container">
+    <p class="eyebrow">Banners</p>
+    <h2 class="section-title">バナー制作 {count}選</h2>
+    <p class="section-lead">
+      用途(広告 / 告知 / SNS投稿など)に合わせて制作したバナーです。画像を差し替えてご利用ください。
+    </p>
+
+    <div class="banner-grid">
+      {banners.map((n) => (
+        <div class="banner-thumb">
+          <span class="banner-no">{String(n).padStart(2, "0")}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .banner-grid {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+  .banner-thumb {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    background: var(--color-bg-raised);
+    border: 1px solid var(--color-line);
+    border-radius: 2px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0.6rem;
+  }
+  .banner-no {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-muted);
+  }
+  @media (max-width: 860px) {
+    .banner-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .banner-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

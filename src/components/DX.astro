@@ -1,0 +1,105 @@
+---
+const cases = [
+  {
+    title: "公式LINE連携システム",
+    issue: "問い合わせ・申込対応が手作業で分散し、リアルタイムに追えていなかった。",
+    approach:
+      "kintoneのFORMBRIDGEでフォーム受付を行い、Cloudflare Workersで中継処理、GASで自動化ロジックを実装してLINE公式アカウントと連携。",
+    stack: ["kintone", "FORMBRIDGE", "Cloudflare Workers", "GAS", "LINE公式アカウント"],
+    result: "対応工数の削減とリアルタイム通知を実現。",
+  },
+  {
+    title: "祭会計システム構築(山忠祭 決算報告)",
+    issue: "全体・チーム別のP&Lや予算実績対比を、関係者にわかりやすく報告する必要があった。",
+    approach:
+      "ブランディングしたExcel決算報告書を作成し、A4横1枚のPowerPointに全体/チーム別の情報を4象限で整理。",
+    stack: ["Excel", "PowerPoint"],
+    result: "委員会・関係者への報告が明確になり、意思決定を支援。",
+  },
+  {
+    title: "営業スマホ発注アプリ",
+    issue: "営業の受発注業務が非効率で、基幹システム(GLOVIA)との連携も煩雑だった。",
+    approach:
+      "AppSheetでスマホ完結の発注アプリを構築し、kintoneとGLOVIAを連携する提案を設計・文書化。",
+    stack: ["AppSheet", "kintone", "GLOVIA連携"],
+    result: "提案書・スライドとして体系化し、将来の拡張余地も設計に反映。",
+  },
+];
+---
+<section class="section" id="dx">
+  <div class="container">
+    <p class="eyebrow">DX / Automation</p>
+    <h2 class="section-title">業務改善・自動化の実績</h2>
+    <p class="section-lead">
+      営業事務としての実務課題を起点に、ノーコード/ローコードと軽量なコードを組み合わせて解決してきた事例です。
+    </p>
+
+    <div class="cases">
+      {cases.map((c, i) => (
+        <article class="case-card card">
+          <div class="case-head">
+            <span class="ledger-no">{String(i + 1).padStart(2, "0")}</span>
+            <h3 class="case-title">{c.title}</h3>
+          </div>
+
+          <dl class="case-detail">
+            <div>
+              <dt>課題</dt>
+              <dd>{c.issue}</dd>
+            </div>
+            <div>
+              <dt>アプローチ</dt>
+              <dd>{c.approach}</dd>
+            </div>
+            <div>
+              <dt>成果</dt>
+              <dd>{c.result}</dd>
+            </div>
+          </dl>
+
+          <div class="case-tags">
+            {c.stack.map((s) => <span class="tag is-green">{s}</span>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cases {
+    margin-top: 2.5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+  .case-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+  }
+  .case-title {
+    font-size: var(--step-2);
+  }
+  .case-detail {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+  }
+  .case-detail dt {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--color-accent-deep);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .case-detail dd {
+    margin: 0;
+    color: var(--color-ink-soft);
+    max-width: 68ch;
+  }
+  .case-tags {
+    margin-top: 1.4rem;
+  }
+</style>

@@ -1,63 +1,42 @@
-# Astro Starter Kit: Blog
+# Meco Portfolio (Astro)
 
-```sh
-npm create astro@latest -- --template blog
+## セットアップ
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+`http://localhost:4321` で確認できます。
 
-Features:
+## 構成
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- `src/components/Hero.astro` — 自己紹介 + フロー図(サイン要素)
+- `src/components/Skills.astro` — スキル(実務レベル/学習中)
+- `src/components/Works.astro` — Webサイト実績 3件
+- `src/components/LP.astro` — LP実績 2件
+- `src/components/Banners.astro` — バナー実績 10件(画像未設定のプレースホルダー)
+- `src/components/DX.astro` — 業務改善・自動化のケーススタディ 3件
+- `src/components/Contact.astro` — GitHub・お問い合わせ
 
-## 🚀 Project Structure
+## デザインコンセプト
 
-Inside of your Astro project, you'll see the following folders and files:
+- 配色: ペーパーグレー(#E7E6DE)+ 真鍮アクセント(#A8763E)+ 深緑(#3F5D50)
+- 書体: 見出し=Zen Old Mincho、本文=Noto Sans JP、ラベル=IBM Plex Mono
+- レイアウト: 決算書・伝票のような罫線区切り+番号付きの構成
 
-```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+## 次にやること
+
+1. `Works.astro` / `LP.astro` の各項目に実際のサイト名・URL・説明文を入力
+2. `Banners.astro` の各枠に実際のバナー画像を差し込む(`.banner-thumb` を `<img>` に置き換え)
+3. `Contact.astro` のメールアドレス・GitHubリンクを実際のものに変更
+4. Vercel / Netlify などにデプロイ
+
+## デプロイ(Vercelの場合)
+
+```bash
+npm i -g vercel
+vercel
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+または GitHub リポジトリに push して Vercel と連携すれば自動デプロイされます。
