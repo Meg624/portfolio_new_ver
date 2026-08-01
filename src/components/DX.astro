@@ -4,25 +4,25 @@ const cases = [
     title: "公式LINE連携システム",
     issue: "問い合わせ・申込対応が手作業で分散し、リアルタイムに追えていなかった。",
     approach:
-      "kintoneのFORMBRIDGEでフォーム受付を行い、Cloudflare Workersで中継処理、GASで自動化ロジックを実装してLINE公式アカウントと連携。",
+      "①kintoneのFORMBRIDGEでフォーム受付を行い、Cloudflare Workersで中継処理、回答内容をLINEへ返す", "②GASでLINE公式アカウントとformbridgeを連携してkintoneへ情報を集約。","①②ともにpowerautomateでmicrosoftTeamsへ通知設定":
     stack: ["kintone", "FORMBRIDGE", "Cloudflare Workers", "GAS", "LINE公式アカウント"],
     result: "対応工数の削減とリアルタイム通知を実現。",
   },
   {
-    title: "祭会計システム構築(山忠祭 決算報告)",
-    issue: "全体・チーム別のP&Lや予算実績対比を、関係者にわかりやすく報告する必要があった。",
+    title: "イベント会計システム構築(収支報告)",
+    issue: "現金出納実績、全体・チーム別のP&Lや予算実績対比を集計して、関係者にわかりやすく報告する必要があった。",
     approach:
-      "ブランディングしたExcel決算報告書を作成し、A4横1枚のPowerPointに全体/チーム別の情報を4象限で整理。",
-    stack: ["Excel", "PowerPoint"],
-    result: "委員会・関係者への報告が明確になり、意思決定を支援。",
+      "ブランディングしたExcel決算報告書を作成し、A4横1枚のPowerPointに全体/チーム別の情報を整理。",
+    stack: ["kintone、formbridge,kViewer,Excel", "PowerPoint"],
+    result: "チーム間・経理への報告が明確になり、素早い共有体制を確立。",
   },
   {
-    title: "営業スマホ発注アプリ",
-    issue: "営業の受発注業務が非効率で、基幹システム(GLOVIA)との連携も煩雑だった。",
+    title: "営業スマホ受注アプリ",
+    issue: "営業の受注業務が非効率で、基幹システムとの連携も煩雑だった。",
     approach:
-      "AppSheetでスマホ完結の発注アプリを構築し、kintoneとGLOVIAを連携する提案を設計・文書化。",
-    stack: ["AppSheet", "kintone", "GLOVIA連携"],
-    result: "提案書・スライドとして体系化し、将来の拡張余地も設計に反映。",
+      "kintoneでスマホ完結の受注アプリを構築し、kintoneと基幹システムを連携するpowerautomateを設計・文書化。",
+    stack: ["kintone","formbridge", "powerautomate"],
+    result: "提案書を作成し可視化、営業の意見を反映しながら開発を進めた。",
   },
 ];
 ---
