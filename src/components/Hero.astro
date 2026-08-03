@@ -4,9 +4,9 @@
   <div class="hero-text">
     <p class="eyebrow">Portfolio / 2026</p>
     <h1 class="hero-title">
-      現場の課題を読み、<br />
-      コードと自動化で<br />
-      解決する。
+      <span class="hero-line">現場の課題を読み、</span>
+      <span class="hero-line">コードと自動化で</span>
+      <span class="hero-line">解決する。</span>
     </h1>
     <p class="hero-lead">
       営業事務としての実務経験をベースに、Web制作とノーコード/ローコードによる業務改善を行っています。
@@ -61,8 +61,13 @@
   }
 
   .hero-title {
-    font-size: var(--step-4);
+    font-size: clamp(2rem, 1.6rem + 2.6vw, 3.4rem);
     letter-spacing: 0.01em;
+  }
+
+  .hero-line {
+    display: block;
+    white-space: nowrap;
   }
 
   .hero-lead {
