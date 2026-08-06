@@ -1,19 +1,40 @@
 ---
-const count = 10;
-const banners = Array.from({ length: count }, (_, i) => i + 1);
+const banners = [
+  {
+    title: "ジム",
+    image: "/images/banners/gym.jpg",
+  },
+  {
+    title: "不動産",
+    image: "/images/banners/realestate.jpg",
+  },
+  {
+    title: "飲食店",
+    image: "/images/banners/restaurant.jpg",
+  },
+  {
+    title: "美容サロン",
+    image: "/images/banners/salon.jpg",
+  },
+];
 ---
+
 <section class="section" id="banners">
   <div class="container">
     <p class="eyebrow">Banners</p>
-    <h2 class="section-title">バナー制作 {count}選</h2>
+    <h2 class="section-title">バナー制作 {banners.length}選</h2>
     <p class="section-lead">
-      用途(広告 / 告知 / SNS投稿など)に合わせて制作したバナーです。画像を差し替えてご利用ください。
+      用途（広告・告知・SNS投稿など）に合わせて制作したバナーです。
     </p>
 
     <div class="banner-grid">
-      {banners.map((n) => (
+      {banners.map((banner) => (
         <div class="banner-thumb">
-          <span class="banner-no">{String(n).padStart(2, "0")}</span>
+          <img
+            src={banner.image}
+            alt={banner.title}
+            loading="lazy"
+          />
         </div>
       ))}
     </div>
@@ -24,28 +45,32 @@ const banners = Array.from({ length: count }, (_, i) => i + 1);
   .banner-grid {
     margin-top: 2.5rem;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
+
   .banner-thumb {
-    position: relative;
-    aspect-ratio: 3 / 2;
-    background: var(--color-bg-raised);
+    overflow: hidden;
     border: 1px solid var(--color-line);
-    border-radius: 2px;
-    display: flex;
-    align-items: flex-end;
-    padding: 0.6rem;
+    border-radius: 4px;
+    background: var(--color-bg-raised);
+    transition: transform .3s ease, box-shadow .3s ease;
   }
-  .banner-no {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--color-muted);
+
+  .banner-thumb:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.12);
   }
-  @media (max-width: 860px) {
-    .banner-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .banner-thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
-  @media (max-width: 520px) {
-    .banner-grid { grid-template-columns: repeat(2, 1fr); }
+
+  @media (max-width: 768px) {
+    .banner-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
