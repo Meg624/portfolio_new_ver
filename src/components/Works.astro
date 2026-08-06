@@ -15,11 +15,12 @@ const sites = [
     url: "https://one-cup.vercel.app/",
   },
   {
-    title: "London-daiary",
+    title: "London-diary",
     role: "コーディング / 保守運用",
     desc: "ロンドン旅行のブログサイト。WordPressで構築し、SEO対策を施して運用しています。",
     tags: ["WordPress", "SEO対応"],
     url: "#",
+    images: ["/works/london-front.jpg", "/works/london-admin.jpg"],
   },
 ];
 ---
@@ -38,11 +39,24 @@ const sites = [
           <div class="work-body">
             <h3 class="work-title">{s.title}</h3>
             <p class="work-role">{s.role}</p>
+
+            {s.images && s.images.length > 0 && (
+              <div class="work-images">
+                {s.images.map((img) => (
+                  <img src={img} alt={s.title} loading="lazy" />
+                ))}
+              </div>
+            )}
+
             <p class="work-desc">{s.desc}</p>
             <div class="work-tags">
               {s.tags.map((t) => <span class="tag">{t}</span>)}
             </div>
-            <a class="work-link" href={s.url}>サイトを見る →</a>
+            {s.url && s.url !== "#" ? (
+              <a class="work-link" href={s.url} target="_blank" rel="noopener">サイトを見る →</a>
+            ) : (
+              <p class="work-note">公開準備中(画面キャプチャを掲載しています)</p>
+            )}
           </div>
         </article>
       ))}
@@ -69,6 +83,25 @@ const sites = [
   }
   .work-tags {
     margin-top: 1rem;
+  }
+  .work-images {
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+    max-width: 640px;
+  }
+  .work-images img {
+    width: 100%;
+    display: block;
+    border: 1px solid var(--color-line);
+    border-radius: 2px;
+  }
+  .work-note {
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--color-muted);
   }
   .work-link {
     display: inline-block;
