@@ -4,7 +4,9 @@ const cases = [
     title: "公式LINE連携システム",
     issue: "問い合わせ・申込対応が手作業で分散し、リアルタイムに追えていなかった。",
     approach:
-      "①kintoneのformbridgeでフォーム受付を行い、Cloudflare Workersで中継処理、回答内容をLINEへ返す。<br>②GASでLINE公式アカウントとformbridgeを連携してkintoneへ情報を集約。<br>①②ともにPower AutomateでMicrosoft Teamsへ通知設定。",
+      "①kintoneのformbridgeでフォーム受付を行い、Cloudflare Workersで中継処理、回答内容をLINEへ返す。
+       ②GASでLINE公式アカウントとformbridgeを連携してkintoneへ情報を集約。
+       ①②ともにPower AutomateでMicrosoft Teamsへ通知設定。",
     stack: ["kintone", "formbridge", "Cloudflare Workers", "GAS", "LINE公式アカウント", "Power Automate"],
     result: "対応工数の削減とリアルタイム通知を実現。",
   },
@@ -12,7 +14,8 @@ const cases = [
     title: "イベント会計システム構築(収支報告)",
     issue: "現金出納実績、全体・チーム別のP&Lや予算実績対比を集計して、関係者にわかりやすく報告する必要があった。",
     approach:
-      "入出金フォームをfombridgeで作成、チームリーダー承認機能を経てkintoneへ会計実績を集約、そこから収支連携アプリをつなげ、収支報告書を作成。<br>都度経理へのTeams通知を流し共有体制をとった",
+      "入出金フォームをfombridgeで作成、チームリーダー承認機能を経てkintoneへ会計実績を集約、そこから収支連携アプリをつなげ、収支報告書を作成。<br>
+       都度経理へのTeams通知を流し共有体制をとった",
     stack: ["kintone", "fombridge", "kViewer", "PowerAutomate"],
     result: "チーム間・経理への報告が明確になり、素早い共有体制を確立。",
   },
